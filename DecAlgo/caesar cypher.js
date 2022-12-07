@@ -86,6 +86,7 @@ function caesarCipher(s, k){
         capitalNum++;   
     }
 
+    let offset = k % 26;
 
     for (let char of s){
         if(char.toLowerCase !== char){
@@ -93,11 +94,11 @@ function caesarCipher(s, k){
 
             if (num){
             let value;
-            if (num + k > 26){
-                value = capitalNumberToLetter[num + k - 26];
+            if (num + offset > 26){
+                value = capitalNumberToLetter[num + offset - 26];
                 result += value;
             }else {
-                value = capitalNumberToLetter[num + k];
+                value = capitalNumberToLetter[num + offset];
                 result += value;
             }
             }else{
@@ -108,10 +109,10 @@ function caesarCipher(s, k){
 
             if (num){
                 let value;
-                if (num + k > 26){
-                    value = numberToLetter[num + k - 26];
+                if (num + offset > 26){
+                    value = numberToLetter[num + offset - 26];
                 }else {
-                    value = numberToLetter[num + k];
+                    value = numberToLetter[num + offset];
                     result += value;
                 }
             }else{
@@ -121,3 +122,57 @@ function caesarCipher(s, k){
     }
     return result;
 }
+
+
+// OR
+
+function caesarCipher(s,k){
+    let result = '';
+    const alphabets = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const NumberToLetter = {};
+    // Number to letter object{'1': a, '2': b, '3': c}
+    const LetterToNumber = {};
+    // letter to number object{a: 1, b: 2, c: 3}
+    let num = 1;re
+    for (let char of alphabets){
+        LetterToNumber[char] = num;
+        // in the character in letter to num equate it to a num
+        NumberToLetter[num] = char;
+        // the num in num to letter equates to a char
+        num++;
+
+        // Calculating the offset by getting the remainder of the rotation count by dividing by 26 
+
+        let offset = k % 26;
+        let start;
+        let end;
+        let value;
+        for (let char of s){
+            // Get the number for the character from our letterToNumber object
+            let num = LetterToNumber[char];
+            if (!undefined){
+                // if the num value is undefined i.e the character is most likely a special character (i.e @ or #), just add it like that to the result
+                result += char;
+            } else {
+                if(char.toLowerCase() !== char){
+                    start = 27;
+                    end = 52;
+                }else {
+                    start = 1;
+                    end = 26;
+                }
+
+                if (num + offset > end){
+                    // if the sum of the number for the given character and the offset if greater than the end, i.e 26 for the lowerCase and 52 for the upperCase, subtract 26 to the ensure it is between i and 52
+                    value = NumberToLetter[num+offset -26];
+                    result += value;
+                } else {
+                    value = NumberToLetter[num + offset];
+                }
+            }
+
+        }
+    }
+    return result;
+}
+

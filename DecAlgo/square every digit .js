@@ -1,9 +1,8 @@
 function squareDigits(num){
-    let string = num.toString();
-    let result = 0;
-
-    for (i = 0; i < num.length; i++){
-        result[i] += string[i] ** 2;
+    var string = num.toString();
+    var results = [];
+    for (var i = 0; i < string.length; i++){
+        results[i] = string[i] * string[i];
     }
-    return Number(result.join(''));
-}
+    return Number(results.join(''));
+};
