@@ -23,3 +23,18 @@ function minimumBill(value, numArr){
     })
     return bill;
 }
+
+// OR
+
+
+function withdraw(amount){
+    // use the math.floor to round the number to the closest 
+    const hundreds = Math.floor(amount/100);
+    // 
+    amount = amount - hundreds * 100;
+    const fifties = Math.floor(amount/50);
+    amount = amount - fifties * 50;
+    const twenties = Math.floor(amount/20);
+    amount = amount - twenties * 20;
+    return [hundreds, fifties, twenties];
+}
