@@ -65,7 +65,6 @@
 // li.classList.add('.list-items')
 // To remove a class
 // li.classList.remove('.list-items')
-
 // EVENT LISTENERS
 // Element.addEventListener("click", function);
 
