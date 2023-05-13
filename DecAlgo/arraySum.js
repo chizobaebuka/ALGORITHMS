@@ -6,21 +6,14 @@
 
 function arraySum(arr1, arr2){
     let incIndex = 0;
+    let newArr = [];
 
-    const sum = arr1.map(num => {
-        const total = num + arr2[incIndex];
-        
-        // if(incIndex >= arr2.length){
-        //     incIndex = 0;
-        // }else{
-        //     incIndex++
-        // }
-        
-        incIndex = incIndex - 1 ? 0 : incIndex +1;
-        return total;
-
-    })
-    return sum;
+    for (let i=0; i<arr1.length; i++){
+        let total = arr1[i] + arr2[incIndex]
+        incIndex = (incIndex >= arr2.length - 1) ? 0 : incIndex + 1
+        newArr.push(total);
+    }
+    return newArr;
 }
 
 // OR
