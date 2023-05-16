@@ -16,6 +16,13 @@ function solve(n){
     return n ? -1 : counter
 }
 
+console.log(solve(1337))
+
+
+
+
+
+
 // OR
 
 function ATMWithdrawal(n) {
