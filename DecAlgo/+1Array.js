@@ -32,4 +32,4 @@ function upArray(arr){
     return arr;
 }
 
-console.log(upArray([5, 7, 4]))
+console.log(upArray([4, 5,9]))
