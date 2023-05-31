@@ -34,10 +34,28 @@
 // "Our team is excited to finish this with you."
 //"Our team is excited to finish this with your client."
 
-function autoCorrect(str){
+function autoCorrect(str) {
 
     // return str.replace(/\b(u|you)\b/ig, "your client")
     return str.replace(/\b(u|you+)\b/gi, "your client")
 }
 // autoCorrect()
 console.log(autoCorrect("We have sent the deliverables to you."))
+
+
+function correctWord(input) {
+    let words = input.toLowerCase().split(" ");
+    for (let i = 0; i < words.length; i++) {
+        let word = words[i];
+        if (word.startsWith("you") && words.length > 3) {
+            words[i] = "your client";
+        }
+        if (word === "u") {
+            words[i] = "your client";
+        }
+    }
+    return words.join(" ");
+}
+
+console.log(correctWord("we have given u the money."));
+
