@@ -46,16 +46,16 @@ console.log(autoCorrect("We have sent the deliverables to you."))
 function correctWord(input) {
     let words = input.toLowerCase().split(" ");
     for (let i = 0; i < words.length; i++) {
-        let word = words[i];
-        if (word.startsWith("you") && words.length > 3) {
+        // let word = words[i];
+        if (words[i].startsWith("you") && words.length > 3) {
             words[i] = "your client";
         }
-        if (word === "u") {
+        if (words[i] === "u") {
             words[i] = "your client";
         }
     }
     return words.join(" ");
 }
 
-console.log(correctWord("we have given u the money."));
+console.log(correctWord("we have given you the money."));
 
